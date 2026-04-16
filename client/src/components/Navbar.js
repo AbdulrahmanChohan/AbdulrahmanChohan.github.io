@@ -31,7 +31,7 @@ const Navbar = () => {
               </svg>
             </div>
             <div className="hidden sm:flex flex-col leading-tight">
-              <span className="font-semibold text-white">Ashar Kamran</span>
+              <span className="font-semibold text-white">Abdulrahman</span>
               <span className="text-xs text-white/60">Code Meets Creativity.</span>
             </div>
           </div>

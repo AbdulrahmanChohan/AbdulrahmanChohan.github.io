@@ -33,7 +33,7 @@ const Hero = () => {
             </span>
 
             <h1 className="mt-6 text-5xl md:text-6xl font-extrabold leading-tight">
-              Meet <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">Your Name</span>
+              Meet <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">Abdulrahman Chohan</span>
             </h1>
 
             <p className="mt-4 text-xl text-gray-300 font-medium">

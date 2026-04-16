@@ -1,7 +1,7 @@
 import React from 'react';
 
 const testimonials = [
-  { id:1, name: 'Katherine Johnson', title: 'Founder, Tech Co', text: 'Ashar delivered exceptional design and fast turnaround.' },
+  { id:1, name: 'Katherine Johnson', title: 'Founder, Tech Co', text: 'Abdulrahman delivered exceptional design and fast turnaround.' },
   { id:2, name: 'Benjamin Smith', title: 'Product Manager', text: 'Great communication and reliable delivery on time.' },
   { id:3, name: 'Nicole D.', title: 'CEO, Startup', text: 'Our conversion improved after the redesign.' }
 ];

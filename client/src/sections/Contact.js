@@ -133,7 +133,7 @@ const Contact = () => {
                   required
                   disabled={isSubmitting}
                   className="w-full px-4 py-3 bg-white/6 border border-white/6 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent disabled:opacity-50 text-white"
-                  placeholder="Your Name"
+                  placeholder="Abdulrahman Chohan"
                 />
               </div>
 

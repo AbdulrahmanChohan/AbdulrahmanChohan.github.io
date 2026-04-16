@@ -149,7 +149,7 @@ full_stack/
 ### Personal Information
 
 1. **Update Hero Section** (`client/src/sections/Hero.js`):
-   - Change your name, title, and description
+   - Change Abdulrahman Chohan, title, and description
    - Replace the placeholder profile image
 
 2. **Update About Section** (`client/src/sections/About.js`):

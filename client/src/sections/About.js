@@ -6,7 +6,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: image card with badge */}
-          <div className="relative flex justify-center lg:justify-start">
+          <div className="relative flex justify-center lg:justify-start"> 
             <div className="relative">
               {/* image container */}
               <div className="w-80 h-80 md:w-96 md:h-96 rounded-xl bg-gradient-to-br from-purple-900/30 to-transparent p-3 shadow-2xl">
