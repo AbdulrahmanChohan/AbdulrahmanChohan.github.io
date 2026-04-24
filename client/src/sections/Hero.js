@@ -3,7 +3,7 @@ import { scrollToSection } from '../utils/scrollToSection';
 
 const PROFILE_IMAGE = `${process.env.PUBLIC_URL}/images/profile-portrait.jpg`;
 const PROFILE_FALLBACK = 'https://via.placeholder.com/760x1024/0b1219/e6efff?text=Abdulrahman+Chohan';
-const TRUST_BADGES = ['Full-Stack', 'Shopify', 'MERN', 'Laravel', 'Node.js', 'React'];
+const TRUST_BADGES = ['AI Engineering', 'RAG Pipelines', 'Shopify SaaS', 'Laravel', 'FastAPI', 'React'];
 
 const Hero = () => {
   const handleImageError = (event) => {
@@ -18,7 +18,7 @@ const Hero = () => {
 
       <div aria-hidden className="absolute inset-x-0 top-[18%] hidden lg:block pointer-events-none select-none">
         <p className="hero-faint-text">
-          FULL STACK SHOPIFY DEVELOPER FULL STACK SHOPIFY DEVELOPER
+          AI FULL-STACK ENGINEER AI FULL-STACK ENGINEER
         </p>
       </div>
 
@@ -30,15 +30,14 @@ const Hero = () => {
             </span>
 
             <h1 className="mt-7 text-[clamp(2.2rem,6vw,5.2rem)] font-extrabold leading-[1.02] tracking-[-0.03em]">
-              Full-Stack and Shopify Developer
+              AI &amp; Full-Stack Engineer
               <span className="block mt-5 text-[clamp(1.15rem,2.2vw,1.85rem)] text-cyan-200/95 font-semibold tracking-normal">
-                High-converting digital products engineered for growth, speed, and reliability.
+                Architecting high-performance SaaS platforms, custom Shopify applications, and intelligent RAG pipelines.
               </span>
             </h1>
 
             <p className="mt-7 text-gray-300 text-lg max-w-2xl">
-              I design and develop premium web platforms, SaaS dashboards, and Shopify storefronts
-              with precise UX and production-grade architecture.
+              I ship enterprise-grade products where AI capabilities, backend resilience, and product experience all work as one system.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">

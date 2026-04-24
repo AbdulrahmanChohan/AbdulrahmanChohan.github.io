@@ -2,40 +2,22 @@ import React from 'react';
 
 const PROJECTS = [
   {
-    id: 'shopify-plus',
-    title: 'Shopify Plus Storefront Revamp',
-    summary: 'Premium storefront redesign focused on conversion rate optimization, fast loading pages, and clean merchandising flow.',
-    technologies: ['Shopify', 'React', 'Node.js'],
+    id: 'clip-matters',
+    title: 'Clip Matters (AI Video Intelligence Platform)',
+    summary: 'AI-powered video intelligence platform with semantic search, speaker identification, and automated transcription powered by sub-500ms vector retrieval.',
+    technologies: ['Laravel 11', 'React 18', 'Qdrant', 'AssemblyAI', 'FastAPI'],
     github: 'https://github.com',
     live: 'https://example.com',
     tones: ['#14e0d6', '#1178b6']
   },
   {
-    id: 'saas-dashboard',
-    title: 'B2B SaaS Analytics Platform',
-    summary: 'MERN-powered admin suite with real-time data pipelines, role-based controls, and actionable KPI dashboards for operations teams.',
-    technologies: ['MERN', 'React', 'Node.js'],
+    id: 'pod-fulfillment-saas',
+    title: 'POD Fulfillment SaaS',
+    summary: 'Multi-vendor print-on-demand Shopify app featuring automated fulfillment tracking, usage-based billing, and 19 Redis-backed async jobs for webhook scale.',
+    technologies: ['Laravel 12', 'React 18', 'Shopify API', 'Redis', 'Zakeke'],
     github: 'https://github.com',
     live: 'https://example.com',
-    tones: ['#2bf6e8', '#2d5cff']
-  },
-  {
-    id: 'laravel-commerce',
-    title: 'Laravel Commerce Operations Suite',
-    summary: 'Custom PHP and Laravel system connecting order management, inventory workflows, and reporting across multiple sales channels.',
-    technologies: ['PHP', 'Laravel', 'Shopify'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    tones: ['#19d7c7', '#0f2c51']
-  },
-  {
-    id: 'react-node-portal',
-    title: 'Client Operations Portal',
-    summary: 'Enterprise-ready React and Node.js web app with workflow automations, contract management, and secure partner onboarding.',
-    technologies: ['React', 'Node.js', 'MERN'],
-    github: 'https://github.com',
-    live: 'https://example.com',
-    tones: ['#00f0d2', '#1575a8']
+    tones: ['#00f0d2', '#2d5cff']
   }
 ];
 
@@ -141,7 +123,7 @@ const Projects = () => {
         </div>
 
         <div className="mt-12 flex flex-wrap justify-center gap-3" data-reveal data-reveal-delay="120">
-          {['PHP', 'Laravel', 'MERN', 'React', 'Node.js', 'Shopify'].map((tech) => (
+          {['AI Systems', 'RAG Pipelines', 'Laravel', 'React', 'FastAPI', 'Shopify', 'Redis'].map((tech) => (
             <span key={`global-${tech}`} className="stack-pill stack-pill-global">{tech}</span>
           ))}
         </div>

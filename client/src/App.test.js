@@ -1,8 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+beforeAll(() => {
+  class MockIntersectionObserver {
+    observe() { }
+    unobserve() { }
+    disconnect() { }
+  }
+
+  window.IntersectionObserver = MockIntersectionObserver;
+});
+
+test('renders AI and full-stack hero headline', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const heading = screen.getByRole('heading', { name: /ai & full-stack engineer/i });
+  expect(heading).toBeInTheDocument();
 });

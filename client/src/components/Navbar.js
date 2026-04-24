@@ -3,6 +3,7 @@ import { scrollToSection as jumpToSection } from '../utils/scrollToSection';
 
 const NAV_LINKS = [
   { id: 'hero', label: 'Home', key: 'home' },
+  { id: 'about', label: 'About', key: 'about' },
   { id: 'services', label: 'Services', key: 'services' },
   { id: 'projects', label: 'Projects', key: 'projects' },
   { id: 'contact', label: 'Contact', key: 'contact' }
@@ -21,6 +22,7 @@ const Navbar = () => {
   useEffect(() => {
     const sectionKeyById = {
       hero: 'home',
+      about: 'about',
       services: 'services',
       projects: 'projects',
       contact: 'contact'
@@ -69,7 +71,7 @@ const Navbar = () => {
             </div>
             <div className="hidden sm:flex flex-col leading-tight">
               <span className="font-semibold text-white tracking-wide">Abdulrahman</span>
-              <span className="text-xs text-white/60">Full-Stack and Shopify Developer</span>
+              <span className="text-xs text-white/60">AI &amp; Full-Stack Engineer</span>
             </div>
           </div>
 

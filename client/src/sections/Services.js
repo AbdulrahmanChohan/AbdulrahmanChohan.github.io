@@ -3,10 +3,14 @@ import { scrollToSection } from '../utils/scrollToSection';
 
 const services = [
   {
-    id: 'web',
-    title: 'Web Development',
-    desc: 'Modern frontend and backend engineering for SaaS platforms, business websites, and custom web apps.',
-    points: ['React and Next.js interfaces', 'Laravel or Node.js APIs', 'Performance-first architecture'],
+    id: 'ai-llm',
+    title: 'AI & LLM Integration',
+    desc: 'Design and deployment of intelligent systems that combine RAG architecture, semantic retrieval, and workflow automation for real business outcomes.',
+    points: [
+      'RAG pipelines with OpenAI, Claude, and LangChain orchestration',
+      'Semantic search engines using Qdrant and Pinecone vector databases',
+      'AI automation tooling for support, operations, and internal productivity'
+    ],
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden>
         <path d="M3 5h18v14H3z" stroke="currentColor" strokeWidth="1.5" />
@@ -17,10 +21,14 @@ const services = [
     )
   },
   {
-    id: 'server',
-    title: 'Server and DevOps Management',
-    desc: 'Secure cloud setup, deployment pipelines, and uptime-focused server operations for production apps.',
-    points: ['Linux and VPS hardening', 'CI/CD and release workflows', 'Monitoring and incident prevention'],
+    id: 'enterprise-backend',
+    title: 'Enterprise Backend Architecture',
+    desc: 'Scalable API foundations engineered for high-throughput workloads, asynchronous processing, and low-latency responses.',
+    points: [
+      'Production APIs with PHP/Laravel, Node.js, and FastAPI',
+      'Redis-backed background jobs and queue-driven event handling',
+      'Response-time optimization, caching strategy, and service reliability hardening'
+    ],
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden>
         <rect x="4" y="4" width="16" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
@@ -31,10 +39,14 @@ const services = [
     )
   },
   {
-    id: 'commerce',
-    title: 'Shopify and Ecommerce Systems',
-    desc: 'Conversion-focused storefronts and custom commerce features built for revenue growth.',
-    points: ['Shopify theme and app integrations', 'Checkout and CRO optimization', 'Catalog, payment, and fulfillment flows'],
+    id: 'shopify-saas',
+    title: 'Shopify SaaS Development',
+    desc: 'Advanced Shopify products built for vendors and operators who need custom workflows, embedded tooling, and dependable scale.',
+    points: [
+      'Multi-vendor marketplaces and embedded Shopify admin applications',
+      'Custom fulfillment workflows and order lifecycle automation',
+      'Laravel + React solutions integrated via Shopify REST and GraphQL APIs'
+    ],
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden>
         <path d="M6 8h12l-1.2 9a2 2 0 0 1-2 1.7H9.2a2 2 0 0 1-2-1.7L6 8z" stroke="currentColor" strokeWidth="1.5" />
