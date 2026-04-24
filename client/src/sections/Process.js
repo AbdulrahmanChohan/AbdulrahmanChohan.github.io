@@ -40,12 +40,12 @@ const Icons = {
 };
 
 const steps = [
-  { id: 1, key: 'discovery', icon: 'discovery', title: 'Discovery', subtitle: 'Understanding goals and requirements', points: ['Initial consultation','Project requirements analysis','Market research','Competitor analysis','Goal setting'], gradient: 'linear-gradient(180deg,#0b1220,#0f1724)', accent: '#1f4a78' },
-  { id: 2, key: 'planning', icon: 'planning', title: 'Planning', subtitle: 'Creating a detailed roadmap and strategy for your project.', points: ['Project scope definition','Timeline creation','Resource allocation','Technology selection','Risk assessment'], gradient: 'linear-gradient(180deg,#2b0d4a,#4c1d95)', accent: '#7c3aed' },
-  { id: 3, key: 'design', icon: 'design', title: 'Design', subtitle: 'Crafting visually stunning and user-friendly interfaces.', points: ['Wireframing','UI/UX design','Prototype development','Client feedback integration','Design finalization'], gradient: 'linear-gradient(180deg,#441016,#7f1d2d)', accent: '#b91c1c' },
-  { id: 4, key: 'development', icon: 'development', title: 'Development', subtitle: 'Building robust and scalable solutions with modern technologies.', points: ['Frontend development','Backend implementation','Database integration','API development','Code optimization'], gradient: 'linear-gradient(180deg,#3b1f09,#9a5a17)', accent: '#f59e0b' },
-  { id: 5, key: 'testing', icon: 'testing', title: 'Testing', subtitle: 'Ensuring functionality, performance, and compatibility across devices.', points: ['Functionality testing','Performance optimization','Cross-browser compatibility','Mobile responsiveness','Security testing'], gradient: 'linear-gradient(180deg,#062f28,#024b3b)', accent: '#0ea5a0' },
-  { id: 6, key: 'launch', icon: 'launch', title: 'Launch', subtitle: 'Deploying your project with a smooth transition to the live environment.', points: ['Final review','Deployment preparation','Go-live execution','Post-launch monitoring','Client training'], gradient: 'linear-gradient(180deg,#02202b,#051424)', accent: '#0ea5a0' }
+  { id: 1, key: 'discovery', icon: 'discovery', title: 'Discovery', subtitle: 'Understanding goals and requirements', points: ['Initial consultation','Project requirements analysis','Market research','Competitor analysis','Goal setting'], gradient: 'linear-gradient(180deg,#0e1a23,#0b1118)', accent: '#6ccfe8' },
+  { id: 2, key: 'planning', icon: 'planning', title: 'Planning', subtitle: 'Creating a detailed roadmap and strategy for your project.', points: ['Project scope definition','Timeline creation','Resource allocation','Technology selection','Risk assessment'], gradient: 'linear-gradient(180deg,#0f2530,#0b141b)', accent: '#5edacb' },
+  { id: 3, key: 'design', icon: 'design', title: 'Design', subtitle: 'Crafting visually stunning and user-friendly interfaces.', points: ['Wireframing','UI/UX design','Prototype development','Client feedback integration','Design finalization'], gradient: 'linear-gradient(180deg,#1b2330,#111721)', accent: '#9ddffc' },
+  { id: 4, key: 'development', icon: 'development', title: 'Development', subtitle: 'Building robust and scalable solutions with modern technologies.', points: ['Frontend development','Backend implementation','Database integration','API development','Code optimization'], gradient: 'linear-gradient(180deg,#17202a,#0e141c)', accent: '#83d7f4' },
+  { id: 5, key: 'testing', icon: 'testing', title: 'Testing', subtitle: 'Ensuring functionality, performance, and compatibility across devices.', points: ['Functionality testing','Performance optimization','Cross-browser compatibility','Mobile responsiveness','Security testing'], gradient: 'linear-gradient(180deg,#0d2424,#081416)', accent: '#63d4c5' },
+  { id: 6, key: 'launch', icon: 'launch', title: 'Launch', subtitle: 'Deploying your project with a smooth transition to the live environment.', points: ['Final review','Deployment preparation','Go-live execution','Post-launch monitoring','Client training'], gradient: 'linear-gradient(180deg,#10212d,#0a131a)', accent: '#8ddcf7' }
 ];
 
 export default function Process() {
@@ -96,16 +96,16 @@ export default function Process() {
   return (
     <section id="process" ref={sectionRef} className="py-20 bg-[#07060a] text-white relative" onMouseEnter={() => stopInterval()} onMouseLeave={() => startInterval()}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-8">
+        <div className="text-center mb-8" data-reveal>
           <div className="inline-block mb-4">
-            <span className="text-sm bg-white/6 text-white/80 px-3 py-1 rounded-full">My Process</span>
+            <span className="text-sm section-chip px-3 py-1 rounded-full">My Process</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-3">How I <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Work</span></h2>
           <p className="text-gray-300 max-w-2xl mx-auto">A structured approach to delivering exceptional results for your project.</p>
         </div>
 
         {/* timeline with connecting line */}
-        <div className="relative w-full mb-12">
+        <div className="relative w-full mb-12" data-reveal data-reveal-delay="80">
           <div className="absolute left-8 right-8 top-1/2 transform -translate-y-1/2 h-[1px] bg-white/10 hidden md:block" />
           <div className="flex items-center justify-between gap-4 md:gap-8 px-6 md:px-28 relative z-10">
             {steps.map((s) => {
@@ -135,9 +135,9 @@ export default function Process() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+          <div data-reveal data-reveal-delay="120">
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-14 h-14 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(180deg,#2b1b3b,#20102a)' }}>
+              <div className="w-14 h-14 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(180deg,#14323d,#0d1b22)' }}>
                 <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3 7h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" stroke="rgba(255,255,255,0.95)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -161,7 +161,7 @@ export default function Process() {
           </div>
 
           {/* Right: animated visual card */}
-          <div className="relative">
+          <div className="relative" data-reveal data-reveal-delay="160">
             <div
               key={animKey}
               className={`rounded-[18px] p-16 border border-white/6 min-h-[320px] flex items-center justify-center overflow-hidden transform transition-all duration-700 ${prefersReduced ? '' : 'opacity-0 translate-y-6 animate-in'}`}
@@ -182,7 +182,7 @@ export default function Process() {
 
             {/* floating step number */}
             <div className="absolute -right-8 -bottom-8 w-16 h-16 rounded-md bg-black/70 border border-white/8 flex items-center justify-center shadow-xl">
-              <span className="text-2xl font-extrabold text-purple-300">{String(current.id).padStart(2, '0')}</span>
+              <span className="text-2xl font-extrabold text-white">{String(current.id).padStart(2, '0')}</span>
             </div>
           </div>
         </div>

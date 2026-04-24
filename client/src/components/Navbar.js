@@ -1,45 +1,82 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { scrollToSection as jumpToSection } from '../utils/scrollToSection';
+
+const NAV_LINKS = [
+  { id: 'hero', label: 'Home', key: 'home' },
+  { id: 'services', label: 'Services', key: 'services' },
+  { id: 'projects', label: 'Projects', key: 'projects' },
+  { id: 'contact', label: 'Contact', key: 'contact' }
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState('home');
 
-  const links = [
-  { id: 'hero', label: 'Home', key: 'home' },
-  { id: 'about', label: 'About Me', key: 'about' },
-  { id: 'projects', label: 'Portfolio', key: 'portfolio' },
-  { id: 'services', label: 'Services', key: 'services' }
-  ];
-
   const scrollToSection = (sectionId, key) => {
-    const element = document.getElementById(sectionId);
-    if (element) element.scrollIntoView({ behavior: 'smooth' });
+    jumpToSection(sectionId);
     setIsOpen(false);
     if (key) setActive(key);
   };
 
+  useEffect(() => {
+    const sectionKeyById = {
+      hero: 'home',
+      services: 'services',
+      projects: 'projects',
+      contact: 'contact'
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible[0]) {
+          const key = sectionKeyById[visible[0].target.id];
+          if (key) setActive(key);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '-30% 0px -55% 0px',
+        threshold: [0.2, 0.4, 0.6]
+      }
+    );
+
+    NAV_LINKS.forEach((link) => {
+      const element = document.getElementById(link.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#07060a] text-white shadow-sm">
+    <nav className="fixed top-0 w-full z-50 text-white glass-nav">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="h-16 flex items-center relative">
           {/* Left: Logo */}
           <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-10 h-10 rounded-md bg-gradient-to-br from-purple-500 to-pink-500 shadow-md">
+            <div
+              className="flex items-center justify-center w-10 h-10 rounded-md shadow-md"
+              style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent-2))' }}
+            >
               {/* simple hex/diamond svg */}
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
                 <path d="M12 2L20 7v10l-8 5-8-5V7l8-5z" fill="rgba(255,255,255,0.95)" />
               </svg>
             </div>
             <div className="hidden sm:flex flex-col leading-tight">
-              <span className="font-semibold text-white">Abdulrahman</span>
-              <span className="text-xs text-white/60">Code Meets Creativity.</span>
+              <span className="font-semibold text-white tracking-wide">Abdulrahman</span>
+              <span className="text-xs text-white/60">Full-Stack and Shopify Developer</span>
             </div>
           </div>
 
           {/* Center: Nav links */}
           <div className="hidden md:flex absolute left-0 right-0 justify-center pointer-events-auto">
             <div className="flex items-center gap-8">
-              {links.map((link) => (
+              {NAV_LINKS.map((link) => (
                 <button
                   key={link.key}
                   onClick={() => scrollToSection(link.id, link.key)}
@@ -48,7 +85,7 @@ const Navbar = () => {
                   {link.label}
                   {/* active underline */}
                   {active === link.key && (
-                    <span className="absolute left-0 right-0 -bottom-3 mx-auto w-12 h-0.5 bg-white rounded-full" />
+                    <span className="absolute left-0 right-0 -bottom-3 mx-auto w-12 h-0.5 rounded-full" style={{ backgroundColor: 'var(--accent-2)' }} />
                   )}
                 </button>
               ))}
@@ -58,15 +95,15 @@ const Navbar = () => {
           {/* Right: Hire button + mobile toggle */}
           <div className="ml-auto flex items-center gap-4">
             <button
-              onClick={() => alert('Open contact or hiring flow')}
-              className="hidden sm:inline-flex items-center gap-3 bg-white text-[#0b0b0d] px-4 py-2 rounded-full font-medium shadow-sm hover:shadow-md transition"
+              onClick={() => scrollToSection('contact', 'contact')}
+              className="hidden sm:inline-flex items-center gap-3 px-4 py-2 rounded-full btn-primary"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 7h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" stroke="#0b0b0d" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M16 3v4" stroke="#0b0b0d" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M8 3v4" stroke="#0b0b0d" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span>Hire Me</span>
+              <span>Book a Call</span>
             </button>
 
             {/* mobile hamburger */}
@@ -82,29 +119,14 @@ const Navbar = () => {
               </button>
             </div>
           </div>
-
-          {/* apply scrollbar color (replace decorative stripe) */}
-          <style>{`
-            /* WebKit (Chrome, Edge, Safari) */
-            :root::-webkit-scrollbar { width: 10px; height: 10px; }
-            :root::-webkit-scrollbar-track { background: transparent; }
-            :root::-webkit-scrollbar-thumb {
-              background: linear-gradient(180deg, #7c3aed, #ec4899);
-              border-radius: 9999px;
-              border: 2px solid rgba(255,255,255,0.02);
-            }
-
-            /* Firefox */
-            :root { scrollbar-width: thin; scrollbar-color: #7c3aed transparent; }
-          `}</style>
         </div>
       </div>
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#07060a] border-t border-white/5">
+        <div className="md:hidden bg-black/70 border-t border-white/10 backdrop-blur-xl">
           <div className="px-4 py-3 space-y-1">
-            {links.map((link) => (
+            {NAV_LINKS.map((link) => (
               <button
                 key={link.key}
                 onClick={() => scrollToSection(link.id, link.key)}
@@ -113,8 +135,8 @@ const Navbar = () => {
                 {link.label}
               </button>
             ))}
-            <button onClick={() => alert('Open contact or hiring flow')} className="mt-2 w-full bg-white text-[#0b0b0d] px-4 py-2 rounded-full font-medium">
-              Hire Me
+            <button onClick={() => scrollToSection('contact', 'contact')} className="mt-2 w-full px-4 py-2 rounded-full btn-primary">
+              Book a Call
             </button>
           </div>
         </div>

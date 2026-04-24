@@ -5,7 +5,12 @@ module.exports = {
     "./public/index.html"
   ],
   theme: {
-    extend: {},
+    extend: {
+      lineHeight: {
+        'loose': '1.75',
+        'relaxed': '2',
+      }
+    },
   },
   plugins: [],
 }

@@ -1,20 +1,31 @@
 import React from 'react';
+import { scrollToSection } from '../utils/scrollToSection';
+
+const PROFILE_IMAGE = `${process.env.PUBLIC_URL}/images/profile-portrait.jpg`;
+const PROFILE_FALLBACK = 'https://via.placeholder.com/760x1024/0b1219/e6efff?text=Abdulrahman+Chohan';
 
 const About = () => {
+  const handleImageError = (event) => {
+    if (event.currentTarget.src !== PROFILE_FALLBACK) {
+      event.currentTarget.src = PROFILE_FALLBACK;
+    }
+  };
+
   return (
     <section id="about" className="py-24 bg-[#07060a] text-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: image card with badge */}
-          <div className="relative flex justify-center lg:justify-start"> 
+          <div className="relative flex justify-center lg:justify-start" data-reveal> 
             <div className="relative">
               {/* image container */}
-              <div className="w-80 h-80 md:w-96 md:h-96 rounded-xl bg-gradient-to-br from-purple-900/30 to-transparent p-3 shadow-2xl">
-                <div className="w-full h-full rounded-lg overflow-hidden bg-black/40 flex items-center justify-center">
+              <div className="w-80 h-[430px] md:w-96 md:h-[520px] rounded-[30px] p-3 portrait-shell">
+                <div className="w-full h-full rounded-[22px] overflow-hidden bg-black/40 flex items-center justify-center">
                   <img
-                    src="https://via.placeholder.com/640x640.png?text=Profile"
+                    src={PROFILE_IMAGE}
+                    onError={handleImageError}
                     alt="Profile"
-                    className="w-full h-full object-cover rounded-lg border-4 border-black/60"
+                    className="w-full h-full object-cover portrait-image"
                   />
                 </div>
               </div>
@@ -33,9 +44,9 @@ const About = () => {
           </div>
 
           {/* Right: text content */}
-          <div className="pt-6 lg:pt-0">
+          <div className="pt-6 lg:pt-0" data-reveal data-reveal-delay="120">
             <div className="inline-block mb-4">
-              <span className="text-sm bg-white/6 text-white/80 px-3 py-1 rounded-full">About Me</span>
+              <span className="text-sm section-chip px-3 py-1 rounded-full">About Me</span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
@@ -54,8 +65,8 @@ const About = () => {
 
             <div>
               <button
-                onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-3 bg-white text-[#07060a] px-5 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition"
+                onClick={() => scrollToSection('projects')}
+                className="inline-flex items-center gap-3 px-5 py-3 rounded-full font-medium transition btn-primary"
               >
                 Learn More
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
