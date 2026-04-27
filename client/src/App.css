@@ -34,6 +34,7 @@ body {
 	font-family: 'Inter', 'Segoe UI', sans-serif;
 	line-height: 1.62;
 	letter-spacing: 0.01em;
+	overflow-x: hidden;
 	background:
 		radial-gradient(1200px 760px at 90% -20%, rgba(37, 233, 221, 0.16), transparent 62%),
 		radial-gradient(900px 540px at 0% 30%, rgba(116, 247, 255, 0.11), transparent 60%),
@@ -437,6 +438,7 @@ button {
 .contact-input {
 	background: rgba(255, 255, 255, 0.05);
 	border: 1px solid rgba(221, 231, 241, 0.26);
+	font-size: 16px;
 	outline: none;
 	transition: border-color 170ms ease, box-shadow 170ms ease, background-color 170ms ease;
 }
@@ -493,10 +495,46 @@ button {
 		padding: 18px;
 	}
 
+		.screen-layout {
+			grid-template-columns: 60px 1fr;
+		}
+	
+		.screen-main-grid span {
+			height: 20px;
+		}
 	.device-phone {
 		right: 6%;
 		bottom: 12px;
 		width: 76px;
 		height: 156px;
+	}
+}
+
+@media (max-width: 639px) {
+	html {
+		scroll-padding-top: 74px;
+	}
+
+	.project-mockup-wrap {
+		height: 220px;
+		padding: 14px;
+	}
+
+	.device-laptop {
+		max-width: 290px;
+	}
+
+	.device-phone {
+		display: none;
+	}
+
+	.stack-pill {
+		font-size: 0.7rem;
+		padding: 0.32rem 0.62rem;
+	}
+
+	.stack-pill-global {
+		font-size: 0.76rem;
+		padding: 0.42rem 0.82rem;
 	}
 }

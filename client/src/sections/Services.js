@@ -62,16 +62,16 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-24 bg-[#07060a] text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-14" data-reveal>
+    <section id="services" className="py-20 sm:py-24 bg-[#07060a] text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-14" data-reveal>
           <div className="inline-block mb-4">
             <span className="text-sm section-chip px-3 py-1 rounded-full">Services</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4">
             What I Offer
           </h2>
-          <p className="text-gray-300 max-w-3xl mx-auto text-lg">
+          <p className="text-gray-300 max-w-3xl mx-auto text-base sm:text-lg">
             Strategic engineering services crafted for teams that need a reliable technical partner and premium user experience execution.
           </p>
         </div>
@@ -82,7 +82,7 @@ export default function Services() {
               key={service.id}
               data-reveal
               data-reveal-delay={String(index * 90)}
-              className="service-card rounded-2xl p-7 h-full flex flex-col"
+              className="service-card rounded-2xl p-6 sm:p-7 h-full flex flex-col"
             >
               <div className="w-12 h-12 rounded-xl icon-wrap mb-5 bg-white/5 border border-white/15 text-cyan-200">
                 {service.icon}
@@ -108,7 +108,7 @@ export default function Services() {
         </div>
 
         <div className="text-center mt-12" data-reveal data-reveal-delay="180">
-          <button onClick={scrollToContact} className="inline-flex items-center gap-3 px-6 py-3 rounded-full font-medium btn-primary">
+          <button onClick={scrollToContact} className="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-full font-medium btn-primary w-full sm:w-auto">
             Start a High-Impact Project
           </button>
         </div>

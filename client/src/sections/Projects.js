@@ -23,19 +23,19 @@ const PROJECTS = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 bg-[#07060a] text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16" data-reveal>
+    <section id="projects" className="py-20 sm:py-24 bg-[#07060a] text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-16" data-reveal>
           <div className="inline-block mb-4">
             <span className="text-sm section-chip px-3 py-1 rounded-full">Portfolio</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Featured Projects</h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Featured Projects</h2>
+          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
             Production-ready systems designed for measurable business outcomes across ecommerce and SaaS products.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           {PROJECTS.map((project, index) => (
             <article
               key={project.id}
@@ -84,7 +84,7 @@ const Projects = () => {
                 </div>
               </div>
 
-              <div className="p-6 flex flex-col flex-1">
+              <div className="p-5 sm:p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-semibold text-white mb-3">{project.title}</h3>
                 <p className="text-gray-300 mb-5 leading-relaxed flex-1">{project.summary}</p>
 
@@ -99,7 +99,7 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex space-x-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <a
                     href={project.github}
                     target="_blank"

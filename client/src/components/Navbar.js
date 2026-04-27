@@ -12,6 +12,7 @@ const NAV_LINKS = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState('home');
+  const logoSrc = `${process.env.PUBLIC_URL}/images/logo1.png`;
 
   const scrollToSection = (sectionId, key) => {
     jumpToSection(sectionId);
@@ -56,19 +57,15 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full z-50 text-white glass-nav">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-16 flex items-center relative">
           {/* Left: Logo */}
-          <div className="flex items-center gap-3">
-            <div
-              className="flex items-center justify-center w-10 h-10 rounded-md shadow-md"
-              style={{ background: 'linear-gradient(135deg, var(--accent), var(--accent-2))' }}
-            >
-              {/* simple hex/diamond svg */}
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
-                <path d="M12 2L20 7v10l-8 5-8-5V7l8-5z" fill="rgba(255,255,255,0.95)" />
-              </svg>
-            </div>
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <img
+              src={logoSrc}
+              alt="Abdulrahman logo"
+              className="w-9 h-9 sm:w-10 sm:h-10 object-contain rounded-md shadow-md shrink-0"
+            />
             <div className="hidden sm:flex flex-col leading-tight">
               <span className="font-semibold text-white tracking-wide">Abdulrahman</span>
               <span className="text-xs text-white/60">AI &amp; Full-Stack Engineer</span>
@@ -132,12 +129,12 @@ const Navbar = () => {
               <button
                 key={link.key}
                 onClick={() => scrollToSection(link.id, link.key)}
-                className="block w-full text-left px-3 py-2 text-white/80 hover:text-white"
+                className="block w-full text-left px-3 py-2.5 text-white/80 hover:text-white"
               >
                 {link.label}
               </button>
             ))}
-            <button onClick={() => scrollToSection('contact', 'contact')} className="mt-2 w-full px-4 py-2 rounded-full btn-primary">
+            <button onClick={() => scrollToSection('contact', 'contact')} className="mt-2 w-full px-4 py-2.5 rounded-full btn-primary">
               Book a Call
             </button>
           </div>
