@@ -16,7 +16,7 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 items-center">
           {/* Left: image card with badge */}
-          <div className="relative flex justify-center lg:justify-start mt-8 lg:mt-0" data-reveal>
+          <article className="relative flex justify-center lg:justify-start mt-8 lg:mt-0" data-reveal>
             <div className="relative">
               {/* image container */}
               <div className="mx-auto w-full max-w-xs sm:max-w-sm md:max-w-96 h-[400px] sm:h-[430px] md:h-[520px] rounded-[30px] p-3 portrait-shell">
@@ -41,7 +41,7 @@ const About = () => {
               </div>
 
             </div>
-          </div>
+          </article>
 
           {/* Right: text content */}
           <div className="pt-2 sm:pt-6 lg:pt-0 text-center lg:text-left" data-reveal data-reveal-delay="120">

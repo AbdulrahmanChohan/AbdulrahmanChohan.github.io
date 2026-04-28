@@ -24,14 +24,15 @@ const Hero = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-10 sm:gap-14 lg:grid-cols-[1.08fr_0.92fr]">
-          <div className="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left px-4 sm:px-6 lg:px-0" data-reveal>
+          <article className="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left px-4 sm:px-6 lg:px-0" data-reveal>
             <span className="inline-flex section-chip px-3 py-1 rounded-full text-sm">
               Trusted By Founders In US and Europe
             </span>
 
             <h1 className="mt-7 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.05] tracking-[-0.03em]">
-              AI &amp; Full-Stack Engineer
-              <span className="block mt-5 text-base sm:text-lg md:text-xl text-cyan-200/95 font-semibold tracking-normal">
+              <span className="block text-sm sm:text-base text-cyan-200 font-semibold tracking-wide">Abdulrahman Chohan</span>
+              <span className="block mt-2 text-3xl sm:text-4xl md:text-5xl font-extrabold">AI &amp; Full-Stack Engineer</span>
+              <span className="block mt-4 text-base sm:text-lg md:text-xl text-cyan-200/95 font-semibold tracking-normal">
                 Building high-performance SaaS platforms, custom Shopify applications, and intelligent RAG pipelines.
               </span>
             </h1>
@@ -62,7 +63,7 @@ const Hero = () => {
                 </span>
               ))}
             </div>
-          </div>
+          </article>
 
           <div className="relative flex justify-center lg:justify-end mt-2 sm:mt-4 lg:mt-0" data-reveal data-reveal-delay="130">
             <div className="relative">

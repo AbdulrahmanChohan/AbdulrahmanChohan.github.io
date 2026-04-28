@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init('JbtpgPUAqOLnfsADs');
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,16 +28,28 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitMessage('');
 
-    const emailTo = 'abdulrahmanchohan4181@gmail.com';
-    const subject = encodeURIComponent(formData.subject);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-    );
+    // Send email via EmailJS
+    const templateParams = {
+      to_email: 'abdulrahmanchohan4181@gmail.com',
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      reply_to: formData.email
+    };
 
-    window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
-    setSubmitMessage('Your email app has been opened. Please send the drafted message there.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
+    emailjs.send('service_fbn0rps', 'template_3apa7tq', templateParams)
+      .then((response) => {
+        setSubmitMessage('✓ Message sent successfully! I\'ll get back to you soon.');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+        setSubmitMessage('✗ Failed to send message. Please try emailing me directly at abdulrahmanchohan4181@gmail.com');
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (

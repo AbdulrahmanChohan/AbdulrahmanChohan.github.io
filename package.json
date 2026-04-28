@@ -17,5 +17,8 @@
     "mongodb"
   ],
   "author": "Abdulrahman Chohan",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "emailjs-com": "^3.2.0"
+  }
 }
