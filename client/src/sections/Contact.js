@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init('JbtpgPUAqOLnfsADs');
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -9,6 +15,18 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupType, setPopupType] = useState('success');
+
+  // Auto-dismiss popup after 4 seconds
+  useEffect(() => {
+    if (showPopup) {
+      const timer = setTimeout(() => {
+        setShowPopup(false);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [showPopup]);
 
   const handleChange = (e) => {
     setFormData({
@@ -22,16 +40,32 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitMessage('');
 
-    const emailTo = 'abdulrahmanchohan4181@gmail.com';
-    const subject = encodeURIComponent(formData.subject);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-    );
+    // Send email via EmailJS
+    const templateParams = {
+      to_email: 'abdulrahmanchohan4181@gmail.com',
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      reply_to: formData.email
+    };
 
-    window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
-    setSubmitMessage('Your email app has been opened. Please send the drafted message there.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setIsSubmitting(false);
+    emailjs.send('service_fbn0rps', 'template_z47m8hi', templateParams)
+      .then((response) => {
+        setSubmitMessage('✓ Message sent successfully! I\'ll get back to you soon.');
+        setPopupType('success');
+        setShowPopup(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+        setSubmitMessage('✗ Failed to send message. Please try emailing me directly at abdulrahmanchohan4181@gmail.com');
+        setPopupType('error');
+        setShowPopup(true);
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -179,7 +213,7 @@ const Contact = () => {
                   required
                   disabled={isSubmitting}
                   rows={6}
-                  className="contact-input w-full px-4 py-3 rounded-lg disabled:opacity-50 text-white"
+                  className="contact-input w-full min-h-[120px] px-4 py-3 rounded-lg disabled:opacity-50 text-white"
                   placeholder="Tell me about your goals, timeline, and any reference websites..."
                 />
               </div>
@@ -195,6 +229,43 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      {/* Success/Error Popup */}
+      {showPopup && (
+        <div className={`fixed bottom-6 right-6 max-w-sm p-5 rounded-xl shadow-2xl border transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 ${
+          popupType === 'success'
+            ? 'bg-gradient-to-r from-emerald-600/20 to-cyan-600/20 border-emerald-400/50'
+            : 'bg-gradient-to-r from-red-600/20 to-orange-600/20 border-red-400/50'
+        }`}>
+          <div className="flex items-center gap-4">
+            {popupType === 'success' ? (
+              <div className="flex-shrink-0">
+                <svg className="w-6 h-6 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+              </div>
+            ) : (
+              <div className="flex-shrink-0">
+                <svg className="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+              </div>
+            )}
+            <div className="flex-1">
+              <p className={`text-sm font-medium ${popupType === 'success' ? 'text-emerald-100' : 'text-red-100'}`}>
+                {popupType === 'success'
+                  ? '✓ Message sent successfully!'
+                  : '✗ Failed to send message'}
+              </p>
+              <p className={`text-xs mt-1 ${popupType === 'success' ? 'text-emerald-200/70' : 'text-red-200/70'}`}>
+                {popupType === 'success'
+                  ? 'I\'ll get back to you soon.'
+                  : 'Please try emailing me directly.'}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

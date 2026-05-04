@@ -5,6 +5,8 @@ const PROJECTS = [
     id: 'clip-matters',
     title: 'Clip Matters (AI Video Intelligence Platform)',
     summary: 'AI-powered video intelligence platform with semantic search, speaker identification, and automated transcription powered by sub-500ms vector retrieval.',
+    image: `${process.env.PUBLIC_URL}/images/clip-matters-preview.png`,
+    alt: 'Clip Matters — AI Video Analytics Dashboard UI showing semantic search, speaker identification, and transcript insights',
     technologies: ['Laravel 11', 'React 18', 'Qdrant', 'AssemblyAI', 'FastAPI'],
     github: 'https://github.com',
     live: 'https://example.com',
@@ -14,6 +16,8 @@ const PROJECTS = [
     id: 'pod-fulfillment-saas',
     title: 'POD Fulfillment SaaS',
     summary: 'Multi-vendor print-on-demand Shopify app featuring automated fulfillment tracking, usage-based billing, and 19 Redis-backed async jobs for webhook scale.',
+    image: `${process.env.PUBLIC_URL}/images/pod-fulfillment-preview.png`,
+    alt: 'POD Fulfillment SaaS — Shopify SaaS Embedded App Interface for automated fulfillment, billing, and vendor dashboards',
     technologies: ['Laravel 12', 'React 18', 'Shopify API', 'Redis', 'Zakeke'],
     github: 'https://github.com',
     live: 'https://example.com',
@@ -50,6 +54,10 @@ const Projects = () => {
                   '--mockup-b': project.tones[1]
                 }}
               >
+                {/* Hidden, accessible preview image for SEO and social cards; update images in public/images */}
+                {project.image && (
+                  <img src={project.image} alt={project.alt} className="sr-only" />
+                )}
                 <div className="device-laptop" aria-hidden>
                   <div className="device-screen">
                     <div className="screen-topbar">
@@ -84,11 +92,11 @@ const Projects = () => {
                 </div>
               </div>
 
-              <div className="p-5 sm:p-6 flex flex-col flex-1">
+              <div className="p-6 sm:p-7 flex flex-col flex-1">
                 <h3 className="text-xl font-semibold text-white mb-3">{project.title}</h3>
                 <p className="text-gray-300 mb-5 leading-relaxed flex-1">{project.summary}</p>
 
-                <div className="mb-6 flex flex-wrap gap-2.5">
+                <div className="mb-6 flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={`${project.id}-${tech}`}

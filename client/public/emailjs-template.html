@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Portfolio Message</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; background-color: #f5f5f5;">
+  <div style="max-width: 600px; margin: 20px auto; background: linear-gradient(135deg, #050709 0%, #081017 55%, #040607 100%); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);">
+    
+    <!-- Header -->
+    <div style="background: linear-gradient(130deg, #25E9DD 0%, #74F7FF 100%); padding: 2px;">
+      <div style="background: linear-gradient(135deg, #050709 0%, #081017 100%); padding: 40px 30px; text-align: center; border-bottom: 1px solid rgba(37, 233, 221, 0.2);">
+        <div style="font-size: 28px; font-weight: 800; color: #F1F8FF; letter-spacing: -1px; margin-bottom: 8px;">
+          New Portfolio Message
+        </div>
+        <div style="font-size: 14px; color: #9DAEC2; letter-spacing: 0.5px;">
+          From {{from_name}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div style="padding: 40px 30px; color: #F1F8FF;">
+      
+      <!-- Greeting -->
+      <div style="margin-bottom: 32px;">
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9DAEC2;">
+          A new message has been received on your portfolio. Here are the details:
+        </p>
+      </div>
+
+      <!-- Sender Info Card -->
+      <div style="background: rgba(37, 233, 221, 0.08); border: 1px solid rgba(37, 233, 221, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+        <table role="presentation" style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <td style="vertical-align: top; padding-right: 16px;">
+              <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #25E9DD 0%, #74F7FF 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0;">
+                👤
+              </div>
+            </td>
+            <td style="vertical-align: top;">
+              <div style="font-size: 16px; font-weight: 700; color: #25E9DD; margin-bottom: 4px;">
+                {{from_name}}
+              </div>
+              <div style="font-size: 14px; color: #9DAEC2; margin-bottom: 8px;">
+                {{from_email}}
+              </div>
+              <div style="font-size: 12px; color: #6B7A8F; letter-spacing: 0.5px;">
+                {{time}}
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Subject Section -->
+      <div style="margin-bottom: 24px;">
+        <div style="font-size: 12px; font-weight: 700; color: #74F7FF; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase;">
+          Subject
+        </div>
+        <div style="font-size: 16px; font-weight: 600; color: #F1F8FF; background: rgba(8, 16, 23, 0.6); border-left: 3px solid #25E9DD; padding: 12px 16px; border-radius: 6px;">
+          {{subject}}
+        </div>
+      </div>
+
+      <!-- Message Section -->
+      <div style="margin-bottom: 32px;">
+        <div style="font-size: 12px; font-weight: 700; color: #74F7FF; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase;">
+          Message
+        </div>
+        <div style="font-size: 15px; line-height: 1.7; color: #D7E4F0; background: rgba(13, 18, 24, 0.8); border: 1px solid rgba(37, 233, 221, 0.15); padding: 18px 20px; border-radius: 8px; white-space: pre-wrap; word-break: break-word;">
+{{message}}
+        </div>
+      </div>
+
+      <!-- Reply Section -->
+      <div style="background: linear-gradient(135deg, rgba(37, 233, 221, 0.1) 0%, rgba(116, 247, 255, 0.05) 100%); border: 1px solid rgba(37, 233, 221, 0.18); border-radius: 10px; padding: 18px 20px; margin-bottom: 24px;">
+        <div style="font-size: 12px; font-weight: 700; color: #25E9DD; letter-spacing: 0.5px; margin-bottom: 8px;">
+          📧 Quick Reply
+        </div>
+        <div style="font-size: 14px; color: #9DAEC2;">
+          Reply directly to: <span style="color: #25E9DD; word-break: break-all;">{{from_email}}</span>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <div style="text-align: center; margin: 32px 0;">
+        <a href="mailto:{{from_email}}?subject=Re: {{subject}}" style="display: inline-block; background: linear-gradient(130deg, #25E9DD 0%, #74F7FF 100%); color: #021114; font-weight: 700; font-size: 15px; padding: 12px 32px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; transition: transform 180ms ease;">
+          Reply to {{from_name}}
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div style="background: rgba(8, 16, 23, 0.6); border-top: 1px solid rgba(37, 233, 221, 0.15); padding: 24px 30px; text-align: center;">
+      <div style="font-size: 12px; color: #6B7A8F; margin-bottom: 12px;">
+        Sent from Abdulrahman Chohan's Portfolio
+      </div>
+      <div style="font-size: 11px; color: #4A5A70; line-height: 1.6;">
+        This is an automated notification from your portfolio contact form.
+        <br>
+        <a href="https://abdulrahmanchohan.github.io/Portfolio" style="color: #25E9DD; text-decoration: none;">View Portfolio</a> • 
+        <a href="https://www.linkedin.com/in/abdurahman-chohan-a74234303" style="color: #25E9DD; text-decoration: none;">LinkedIn</a> • 
+        <a href="https://github.com/AbdulrahmanChohan" style="color: #25E9DD; text-decoration: none;">GitHub</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
