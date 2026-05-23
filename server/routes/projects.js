@@ -88,7 +88,8 @@ router.delete('/:id', async (req, res) => {
     }
 
     await project.deleteOne();
-    res.json({ message: 'Project deleted' });
+    res.json({ message: 'Project deleted', });
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

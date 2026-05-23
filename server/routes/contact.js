@@ -3,7 +3,7 @@ import Contact from '../models/Contact.js';
 
 const router = express.Router();
 
-// Get all contact messages
+// Get all contact messagesmma,s.mdlx 
 router.get('/', async (req, res) => {
   try {
     const contacts = await Contact.find().sort({ createdAt: -1 });
